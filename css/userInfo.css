@@ -1,0 +1,72 @@
+body {
+    background-color: #17151a;
+    position: relative;
+    height: auto;
+    min-height: 100% !important;
+}
+
+.grid-container {
+    position: relative;
+    display: grid; 
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 100%;
+    z-index: 1;
+}
+
+.grid-container > .wall{
+    display: block;
+    position: relative;
+    height: auto;
+}
+
+.grid-container > .wall > #wallpaper{
+    position: absolute;
+    z-index: -2;
+}
+
+.grid-container > .wall > .user-info{
+    display: inline-flex;
+    margin-left: 15%;
+    position: absolute;
+    align-items: center;
+    z-index: -1;
+}
+
+.grid-container > .wall > .user-info > #friendCheck{
+    border: 0; 
+    white-space: nowrap;
+    left: 50%;
+    position: absolute;
+    display: fixed;
+    margin-top: 20px;
+}
+
+.grid-container > .wall > .user-info > #avatar {
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.grid-container > .wall > .user-info > p{
+    font-size: 40px;
+    margin-top: 40px;
+    margin-left: 10px;
+    color: white;
+}
+
+.grid-container > .wall > .user-info > .info {
+    position: absolute;
+    display: inline-flex;
+    margin-top: 20px;
+    left: 75%;
+    size: 30px;
+    float: right;
+    right: 0;
+}
+
+.grid-container > .personPost{
+    display: block;
+    position: relative;
+    left: 25%;
+}

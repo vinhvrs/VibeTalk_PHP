@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #17151a;
+    color: white;
+    min-width: 100%;
+    max-width: 200%;
+}
+
+.wrapper{
+    display: grid;
+    background-color: #17151a;
+    grid-template-columns: 50%;
+    grid-template-rows: 100%;
+}
+
+#logo{
+    margin: 0;
+    padding: 0;
+    left: 2%;
+}
+
+#brandname{
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+    left: 2%;
+    font-size: 20px;
+}
+
+.nav-side{
+    height: 100%;
+    width: 20%;
+    display: block;
+    position: fixed;
+}
+
+.nav-side > .flex-column > a > button{
+    border: none;
+}
+
+.nav-side > .flex-column > a > button:hover{
+    width: 100%;
+    height: 50px;
+    background-color: #17151a;
+    color: white;
+    border: none;
+    border-bottom: 1px solid #242526;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.wrapper > .post-content{
+    margin-top: 10%;
+    margin-left: 45%;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.wrapper > .music-chat{
+    /* margin-top: 8%; */
+    margin-left: 75%;
+    height: 100%;
+    width: 25%;
+    display: block;    
+    position: fixed;
+}
+
+.wrapper > .music-chat > #Music-Expand{
+    margin-top: 5px; 
+    width: 300px;
+    height: 15px;
+}
+
+.wrapper > .music-chat > .chat-frame{
+    resize: initial;
+    overflow:  auto;
+    border-radius:2px;
+    margin-top: 5px;
+    width: 90%;
+    /* height: 100%;  */
+}

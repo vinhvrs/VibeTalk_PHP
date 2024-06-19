@@ -1,0 +1,35 @@
+.card{
+    width: 90%;
+    height: 100%;
+    background-color: #18191a;
+    color: white;
+    margin-left: 5%;
+    margin-top: 20px;
+    padding: 10px;
+    padding-top: 5;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 white;
+}
+
+.card-img-top{
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.container > .row > .col-8 > .card > .card-body > .card-title > iframe{
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.card-title{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
