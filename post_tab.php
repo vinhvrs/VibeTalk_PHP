@@ -97,6 +97,7 @@ try {
                         }
                         ?>
                         <form action="comment.php">
+                            <input type="hidden" name="postID" value="<?php echo $post['postID']; ?>">
                             <input type="text" name="comment" placeholder="Comment here">
                             <input type="submit" value="Comment">
                         </form>

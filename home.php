@@ -212,23 +212,26 @@
             <div id="chat-frame" class="chat-frame">
                 <?php
                     $Friends = array();
+                    $FriendID = array();
                     if ($username != null) {
                         try {
                             $conn = new PDO("sqlsrv:Server=VRS-LAPTOP;Database=WebDev", "sa", "nguyentritue");
                             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            $stmt = $conn->prepare("SELECT username FROM userInfo LEFT JOIN Friends ON userInfo.userID = Friends.friendID WHERE Friends.userID = (SELECT userID FROM userInfo WHERE userInfo.username = :username);");
+                            $stmt = $conn->prepare("SELECT * FROM userInfo LEFT JOIN Friends ON userInfo.userID = Friends.friendID WHERE Friends.userID = (SELECT userID FROM userInfo WHERE userInfo.username = :username);");
                             $stmt->bindParam(':username', $username);
                             $stmt->execute();
                             $j = 0;
                             while ($row = $stmt->fetch()) {
                                 $Friends[$j] = $row['username'];
+                                $FriendID[$j] = $row['friendID'];
                                 $j++;
                             }
-                            $stmt = $conn->prepare("SELECT username FROM userInfo LEFT JOIN Friends ON userInfo.userID = Friends.userID WHERE Friends.friendID = (SELECT userID FROM userInfo WHERE userInfo.username = :username);");
+                            $stmt = $conn->prepare("SELECT * FROM userInfo LEFT JOIN Friends ON userInfo.userID = Friends.userID WHERE Friends.friendID = (SELECT userID FROM userInfo WHERE userInfo.username = :username);");
                             $stmt->bindParam(':username', $username);
                             $stmt->execute();
                             while ($row = $stmt->fetch()) {
                                 $Friends[$j] = $row['username'];
+                                $FriendID[$j] = $row['userID'];
                                 $j++;
                             }
                             $conn = null;
@@ -244,7 +247,7 @@
                 <table style="width: 100%">
                     <?php
                         for ($i = 0; $i < count($Friends); $i++) {
-                            echo "<tr><td><a class='btn btn-outline-dark' style='width: 100%' onclick='var friendName = \"$Friends[$i]\"; chatBox(friendName);'>".$Friends[$i]."</a></td></tr>";
+                            echo "<tr><td><a class='btn btn-outline-dark' style='width: 100%' onclick='var friendName = \"$Friends[$i]\"; var friendID = \"$FriendID[$i]\"; chatBox(friendName, friendID);'>".$Friends[$i]."</a></td></tr>";
                         }
                     ?>
                 </table>

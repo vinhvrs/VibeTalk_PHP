@@ -16,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $con->prepare("SET IDENTITY_INSERT FriendRequest ON; INSERT INTO FriendRequest (requestID, senderID, receiverID, requestDate, status) VALUES ('$count', '$userID', '$friendID', '$date', 'pending'); SET IDENTITY_INSERT FriendRequest OFF;");
         $stmt->execute();
 
+        $stmt = $con->prepare("SET IDENTITY_INSERT FriendRequest ON; INSERT INTO Friends (userID, friendID) VALUES ('$userID', '$friendID'); SET IDENTITY_INSERT FriendRequest OFF;");
+        $stmt->execute();
 
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
